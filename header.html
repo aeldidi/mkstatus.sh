@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width-device-width, initial-scale=1, shrink-to-fit=no">
+	<title>System Status</title>
+	<style>
+		@import url('/font/inter.css');
+
+		html {
+			font-family: 'Inter', sans-serif;
+		}
+
+		@supports (font-variation-settings: normal) {
+			html {
+				font-family: 'Inter var', sans-serif;
+			}
+		}
+
+		body {
+			font-family: inter, sans-serif;
+		}
+
+		h1 {
+			margin-top: 30px;
+		}
+
+		ul {
+			padding: 0px;
+		}
+
+		li {
+			list-style: none;
+			margin-bottom: 2px;
+			padding: 5px;
+			/* border-bottom: 1px solid #ddd; */
+		}
+
+		.grid {
+			display: grid;
+			grid-template-columns: 50% 50%;
+			padding-bottom: 15px;
+		}
+
+		body {
+			max-width: 600px;
+			width: 90%;
+			margin: 15px auto;
+		}
+
+		.valign {
+			display: flex;
+			align-items: center;
+			padding-top: 5px;
+			padding-bottom: 5px;
+		}
+
+		.small {
+			font-size: 80%;
+		}
+
+		.success-border {
+			border: 3px solid #52b86a;
+			padding: 5px;
+		}
+
+		.failure-border {
+			border: 3px solid #ff8c00;
+			padding: 5px;
+		}
+
+		.status {
+			width: 1rem;
+			height: 1rem;
+			padding-right: 0.5rem;
+		}
+
+		.center {
+			text-align: center;
+		}
+
+		.center * {
+			padding-left: 1rem;
+			padding-right: 1rem;
+		}
+
+		.incident {
+			border-bottom: 1px solid #ddd;
+			padding: 0.7rem;
+		}
+	</style>
+	<script>
+		window.onload = function () {
+			const text = document.
+				getElementsByClassName('last-checked')[0];
+			text.textContent = (new Date(text.textContent)).
+				toLocaleString(window.navigator.language,
+					{
+						year: 'numeric',
+						month: 'long',
+						day: 'numeric',
+						hour: 'numeric',
+						minute: 'numeric',
+						hour12: true,
+					}
+				);
+		}
+	</script>
+</head>
+
+<body>
+	<h1>System Status</h1>
+	<main>
