@@ -31,10 +31,10 @@ fi
 #	$2 = The status code to check for.
 check_http() {
 	# IPv4
-	(curl -4isSfI -H "$user_agent" -m 10 -w '%{http_code}' -o /dev/null "$1" \
+	(curl -4isSfIL -H "$user_agent" -m 10 -w '%{http_code}' -o /dev/null "$1" \
 		| grep -q "$2") &&
 	# IPv6
-	(curl -6isSfI -H "$user_agent" -m 10 -w '%{http_code}' -o /dev/null "$1" \
+	(curl -6isSfIL -H "$user_agent" -m 10 -w '%{http_code}' -o /dev/null "$1" \
 		| grep -q "$2")
 }
 
