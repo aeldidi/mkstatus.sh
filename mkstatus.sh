@@ -154,7 +154,7 @@ generate_feed() {
 	while read -r date description; do
 		printf '<item>'
 		printf '<title>%s</title>
-<link%s</link>
+<link>%s</link>
 <description>%s</description>' "$date" "$2" "$description"
 		echo '</item>'
 	done < "$1"
