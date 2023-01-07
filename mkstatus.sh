@@ -1,6 +1,7 @@
 #!/usr/bin/env sh
-# SPDX-License-Identifier: MIT
+# SPDX-License-Identifier: CC0-1.0
 # SPDX-FileCopyrightText: 2022 Ayman El Didi
+set -euf
 
 user_agent='Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.81 Safari/537.36'
 tmpdir="$(mktemp -d)"
@@ -31,10 +32,10 @@ fi
 #	$2 = The status code to check for.
 check_http() {
 	# IPv4
-	(curl -4isSfIL -H "$user_agent" -m 10 -w '%{http_code}' -o /dev/null "$1" \
+	(curl -X GET -4isSfIL -H "$user_agent" -m 10 -w '%{http_code}' -o /dev/null "$1" \
 		| grep -q "$2") &&
 	# IPv6
-	(curl -6isSfIL -H "$user_agent" -m 10 -w '%{http_code}' -o /dev/null "$1" \
+	(curl -X GET -6isSfIL -H "$user_agent" -m 10 -w '%{http_code}' -o /dev/null "$1" \
 		| grep -q "$2")
 }
 
